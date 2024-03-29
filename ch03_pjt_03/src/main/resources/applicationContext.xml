@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">  
+
+    <!-- CalAdd 클래스의 빈 설정 -->
+    <bean id="cAdd" class="ch03_pjt_03.CalAdd" />
+    <!-- ch03_pjt_03.CalAdd cAdd = new ch03_pjt_03.CalAdd(); 와 같은 의미 -->
+
+    <!-- CalSub 클래스의 빈 설정 -->
+    <bean id="cSub" class="ch03_pjt_03.CalSub" />
+
+    <!-- CalMul 클래스의 빈 설정 -->
+    <bean id="cMul" class="ch03_pjt_03.CalMul" />
+
+    <!-- CalDiv 클래스의 빈 설정 -->
+    <bean id="cDiv" class="ch03_pjt_03.CalDiv" />
+
+    <!-- MyCalculator 클래스의 빈 설정 -->
+    <bean id="myCalculator" class="ch03_pjt_03.MyCalculator" />
+
+    <!-- CalAssembler 클래스의 빈 설정 -->
+    <bean id="calAssembler" class="ch03_pjt_03.CalAssembler" >
+        <!-- CalAssembler 클래스의 생성자에 주입될 빈들의 설정 -->
+        <constructor-arg ref="myCalculator" />
+        <constructor-arg ref="cAdd" />
+        <constructor-arg ref="cSub" />
+        <constructor-arg ref="cMul" />
+        <constructor-arg ref="cDiv" />
+    </bean>
+
+</beans>
