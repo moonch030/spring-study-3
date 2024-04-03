@@ -1,1 +1,1 @@
-# 대림대학교 Spring
+# spring 강의
