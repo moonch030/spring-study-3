@@ -3,6 +3,7 @@ package ch04_pjt_01.ems;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import ch04_pjt_01.ems.member.Student;
+import ch04_pjt_01.ems.member.service.EMSInformationService;
 import ch04_pjt_01.ems.member.service.PrintStudentInformationService;
 import ch04_pjt_01.ems.member.service.StudentDeleteService;
 import ch04_pjt_01.ems.member.service.StudentModifyService;
@@ -56,10 +57,9 @@ public class MainClass {
         StudentSelectService studentSelectService = 
         		ctx.getBean("studentSelectService",
         				StudentSelectService.class);
+       
         
-        Student selectedStudent = studentSelectService.select("hbs006");
-        
-        Student selectedstudent = studentSelectService.select("hbs006");
+        Student selectedstudent = studentSelectService.selectBySId("dear");
 
         System.out.println("STUDENT START ------------------------------------------------------------------------------------------------------------");
         System.out.print("sNum:" + selectedstudent.getsNum() + "\t");
@@ -84,6 +84,30 @@ public class MainClass {
         		ctx.getBean("studentDeleteService",StudentDeleteService.class);
         deleteService.delete("hbs005");
         psi.printStudentInfo(); //학생 리스트를 전부 출력
+        
+        //EMS 시스템 정보 출력
+        EMSInformationService obems =ctx.getBean("eMSInformationService",EMSInformationService.class);
+        obems.printEMSInformation();
+                
+        // 'sId'로 검색할 학생 ID 설정
+        String searchSId = "pig"; // 검색할 학생 ID
+        Student studentById = studentSelectService.selectBySId(searchSId);
+
+        if (studentById != null) {
+            System.out.println("학생 ID로 검색한 결과 -------------------------------------------------------------------------------------------------");
+            System.out.print("sNum:" + studentById.getsNum() + "\t");
+            System.out.print("|sId:" + studentById.getsId() + "\t");
+            System.out.print("|sPw:" + studentById.getsPw() + "\t");
+            System.out.print("|sName:" + studentById.getsName() + "\t");
+            System.out.print("|sAge:" + studentById.getsAge() + "\t");
+            System.out.print("|sGender:" + studentById.getsGender() + "\t");
+            System.out.println("|sMajor:" + studentById.getsMajor());
+            System.out.println("END ------------------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("해당 학생 ID로 검색된 학생 정보가 없습니다.");
+        }
+        
+        ctx.close();
     } //end of main()
 
 }

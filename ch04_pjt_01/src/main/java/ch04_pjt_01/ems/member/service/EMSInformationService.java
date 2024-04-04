@@ -1,7 +1,9 @@
 package ch04_pjt_01.ems.member.service;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import ch04_pjt_01.ems.member.DBConnectionInfo;
 
@@ -175,7 +177,21 @@ public class EMSInformationService {
         System.out.println(ver);
         System.out.println("Developers: " + developers);
         System.out.println("Administrator: " + administrators);
-//      printDBInfo(); // 나중에 추가
+        printDBInfo();
         System.out.println("END ----------------------------");
     }
+    
+    private void printDBInfo() {
+        Set<String> keys = dbInfos.keySet();
+        Iterator<String> iterator = keys.iterator();
+
+        while (iterator.hasNext()) {
+           String key = iterator.next();
+           DBConnectionInfo info = dbInfos.get(key);
+           System.out.print("[" + key + " DB] ");
+           System.out.print("url: " + info.getUrl() + "\t");
+           System.out.print("userId: " + info.getUserId() + "\t");
+           System.out.print("userPw: " + info.getUserPw() + "\n");
+        }
+     }
 }

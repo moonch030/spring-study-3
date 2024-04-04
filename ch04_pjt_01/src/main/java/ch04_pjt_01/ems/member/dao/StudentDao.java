@@ -40,4 +40,15 @@ public class StudentDao {
     public Map<String, Student> getStudentDB() {
         return studentDB;
     }
+    
+    // 학생 id로 정보 검색 메서드
+    public Student findById(String sId) {
+        for (Student student : studentDB.values()) {
+            if (student.getsId().equals(sId)) {
+                return student;
+            }
+        }
+        return null; // 일치하는 sId를 가진 학생이 없을 경우
+    }
+
 }

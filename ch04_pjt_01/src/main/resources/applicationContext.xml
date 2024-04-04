@@ -135,7 +135,7 @@
    
 	<!-- EMSInformationService 빈 -->
 	<bean id="eMSInformationService" 
-	class="ch04_pjt_01.ems.member.service.EMSInformationService;">
+	class="ch04_pjt_01.ems.member.service.EMSInformationService">
 	
 <!-- 	<property name="info">
          <value>"Education Management System program was developed in 2022." 
@@ -165,22 +165,23 @@
          	</list>
          </property>
          
-         <property name="adminstrators">
-         	<map>
-	            <entry>
-	               <key>
-	                  <value>Cheney</value>
-	               </key>
-	               <value>cheney@springPjt.org</value>
-	            </entry>
-	            <entry>
-	               <key>
-	                  <value>Jasper</value>
-	               </key>
-	               <value>jasper@springPjt.org</value>
-	            </entry>
-	         </map>
-         </property>
+         <property name="administrators">
+		    <map>
+		        <entry>
+		            <key>
+		                <value>Cheney</value>
+		            </key>
+		            <value>cheney@springPjt.org</value>
+		        </entry>
+		        <entry>
+		            <key>
+		                <value>Jasper</value>
+		            </key>
+		            <value>jasper@springPjt.org</value>
+		        </entry>
+		    </map>
+		</property>
+
       
          <!-- dbInfos 필드 초기화 -->
 	      <property name="dbInfos">
