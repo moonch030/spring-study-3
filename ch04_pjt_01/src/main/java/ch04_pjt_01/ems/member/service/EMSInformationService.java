@@ -170,7 +170,7 @@ public class EMSInformationService {
 
 	// EMS 정보 출력 메서드
     public void printEMSInformation() {
-        System.out.println("EMS INFORMATION START ----------");
+        System.out.println("EMS INFORMATION START ------------------------------------------------------------------------------------------");
         String devPeriod = sYear + "/" + sMonth + "/" + sDay + " ~ " + eYear + "/" + eMonth + "/" + eDay;
         System.out.println(info + "(" + devPeriod + ")");
         System.out.println(copyRight);
@@ -178,20 +178,26 @@ public class EMSInformationService {
         System.out.println("Developers: " + developers);
         System.out.println("Administrator: " + administrators);
         printDBInfo();
-        System.out.println("END ----------------------------");
+        System.out.println("END ------------------------------------------------------------------------------");
     }
     
-    private void printDBInfo() {
+     public void printDBInfo() {
+        if (dbInfos == null) {
+            System.out.println("DB 정보가 설정되지 않았습니다.");
+            return; // dbInfos가 null인 경우 메서드 종료
+        }
+        
         Set<String> keys = dbInfos.keySet();
         Iterator<String> iterator = keys.iterator();
 
         while (iterator.hasNext()) {
-           String key = iterator.next();
-           DBConnectionInfo info = dbInfos.get(key);
-           System.out.print("[" + key + " DB] ");
-           System.out.print("url: " + info.getUrl() + "\t");
-           System.out.print("userId: " + info.getUserId() + "\t");
-           System.out.print("userPw: " + info.getUserPw() + "\n");
+            String key = iterator.next();
+            DBConnectionInfo info = dbInfos.get(key);
+            System.out.print("[" + key + " DB] ");
+            System.out.print("url: " + info.getUrl() + "\t");
+            System.out.print("userId: " + info.getUserId() + "\t");
+            System.out.print("userPw: " + info.getUserPw() + "\n");
         }
-     }
+    }
+
 }
