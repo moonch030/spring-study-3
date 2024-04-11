@@ -36,13 +36,13 @@
    
    <bean id="registerService" 
    		class="ch05_pjt_01.contact.service.ContactRegisterService">
-   		<!-- <constructor-arg ref="contactDao"/> -->
+<!--    		<constructor-arg ref="contactDao"/> -->
    </bean>
 
    
    <bean id="searchService" 
    		class="ch05_pjt_01.contact.service.ContactSearchService">
-   		<!-- <constructor-arg ref="contactDao"/> -->
+<!--    		<constructor-arg ref="contactDao"/> -->
    </bean>
    
 </beans>

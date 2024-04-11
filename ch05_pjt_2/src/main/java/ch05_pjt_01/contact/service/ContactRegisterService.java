@@ -7,7 +7,8 @@ import ch05_pjt_01.contact.dao.ContactDao;
 
 public class ContactRegisterService {
 
-	private ContactDao contactDao;
+	@Autowired
+	private ContactDao contactDao=null;
     
     public ContactRegisterService() {
 
@@ -16,6 +17,7 @@ public class ContactRegisterService {
     }
     
 
+//    @Autowired
     public ContactRegisterService(ContactDao contactDao) {
        System.out.println(
     "ContactDao 파라미터 하나 가진 ContactRegisterService 생성자");
