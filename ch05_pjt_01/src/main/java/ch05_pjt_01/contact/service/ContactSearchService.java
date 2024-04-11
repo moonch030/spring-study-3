@@ -13,14 +13,14 @@ private ContactDao contactDao;
     }
 
 
-    public ContactSearchService(ContactDao contactDao) {
-       System.out.println(
-    "ContactDao 파라미터 하나 가진 ContactSearchService 생성자");
-       System.out.println(
-       "ContactSearchService에서 contactDao: " + 
-       contactDao);    // contactDao 출력
-        this.contactDao = contactDao;
-    }
+//    public ContactSearchService(ContactDao contactDao) {
+//       System.out.println(
+//    "ContactDao 파라미터 하나 가진 ContactSearchService 생성자");
+//       System.out.println(
+//       "ContactSearchService에서 contactDao: " + 
+//       contactDao);    // contactDao 출력
+//        this.contactDao = contactDao;
+//    }
 
     public ContactSet searchContact(String name) {
         if (verify(name)) {
