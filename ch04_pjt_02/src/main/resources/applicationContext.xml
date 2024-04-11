@@ -4,16 +4,23 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
     http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+    
+    <!-- InjectionBean 클래스의 인스턴스를 생성하는 빈 정의.
+         id 속성은 빈의 고유 식별자이며, class 속성은 해당 빈의 클래스 경로를 지정. -->
 	<bean id="injectionBean" class="ch04_pjt_02.scope.InjectionBean"/>
 
-	<bean id="dependencyBean" class="ch04_pjt_02.scope.DependencyBean" >
+    <!-- DependencyBean 클래스의 인스턴스를 생성하는 빈 정의. 
+         이 빈 정의는 constructor-arg 요소를 사용하여 생성자 주입을 수행. 
+         ref 속성은 주입할 다른 빈의 id를 지정. 여기서는 'injectionBean' 빈을 DependencyBean의 생성자로 주입. -->
+	<bean id="dependencyBean" class="ch04_pjt_02.scope.DependencyBean">
 			<constructor-arg ref="injectionBean"/>
-		</bean>
+	</bean>
 	
+	<!-- 주석 처리된 빈 정의는 'dependencyBean'의 두 번째 정의.
+         이 정의는 'scope' 속성을 'prototype'으로 설정하여 각각의 getBean 호출마다 새로운 인스턴스를 생성. 
+         현재 이 부분은 주석 처리되어 있어서, 싱글톤(singleton) 스코프가 기본값으로 사용. -->
 		<!-- <bean id="dependencyBean" class="ch04_pjt_02.scope.DependencyBean" scope="prototype">
 			<constructor-arg ref="injectionBean"/>
 		</bean> -->
-	
 	
 </beans>
