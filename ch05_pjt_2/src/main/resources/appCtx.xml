@@ -10,9 +10,10 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
     
-    <!-- annotation을 사용하기 위해 추가된 코드 -->
+    <!-- 애너테이션을 활성화하기 위한 설정 -->
    <context:annotation-config/>
     
+    <!-- 초기 데이터 설정을 위한 InitSampleData 빈 정의 -->
     <bean id="initSampleData" class="ch05_pjt_01.contact.utils.InitSampleData">
       <property name="names">
          <array>
@@ -30,19 +31,19 @@
       </property>
    </bean>
    
+   <!-- ContactDao 빈 정의 -->
    <bean id="contactDao"
    		class="ch05_pjt_01.contact.dao.ContactDao">
    </bean>
    
+   <!-- ContactRegisterService 빈 정의, constructor-arg 주석 처리됨 -->
    <bean id="registerService" 
    		class="ch05_pjt_01.contact.service.ContactRegisterService">
-<!--    		<constructor-arg ref="contactDao"/> -->
    </bean>
 
-   
+   <!-- ContactSearchService 빈 정의, constructor-arg 주석 처리됨 -->
    <bean id="searchService" 
    		class="ch05_pjt_01.contact.service.ContactSearchService">
-<!--    		<constructor-arg ref="contactDao"/> -->
    </bean>
    
 </beans>

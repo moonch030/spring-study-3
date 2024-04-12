@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.springframework.org/schema/beans 
-    http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
     
+    <!-- InitSampleData 빈 정의, 초기 연락처 데이터 설정 -->
     <bean id="initSampleData" class="ch05_pjt_01.contact.utils.InitSampleData">
       <property name="names">
          <array>
@@ -20,21 +20,19 @@
             <value>010-0000-3333</value>
          </array>
       </property>
-   </bean>
-   
-   <bean id="contactDao"
-   		class="ch05_pjt_01.contact.dao.ContactDao">
-   </bean>
-   
-   <bean id="registerService" 
-   		class="ch05_pjt_01.contact.service.ContactRegisterService">
-   		<constructor-arg ref="contactDao"/>
-   </bean>
-
-   
-   <bean id="searchService" 
-   		class="ch05_pjt_01.contact.service.ContactSearchService">
-   		<constructor-arg ref="contactDao"/>
-   </bean>
-   
+    </bean>
+    
+    <!-- ContactDao 빈 정의 -->
+    <bean id="contactDao" class="ch05_pjt_01.contact.dao.ContactDao">
+    </bean>
+    
+    <!-- ContactRegisterService 빈 정의, ContactDao 주입 -->
+    <bean id="registerService" class="ch05_pjt_01.contact.service.ContactRegisterService">
+        <constructor-arg ref="contactDao"/>
+    </bean>
+    
+    <!-- ContactSearchService 빈 정의, ContactDao 주입 -->
+    <bean id="searchService" class="ch05_pjt_01.contact.service.ContactSearchService">
+        <constructor-arg ref="contactDao"/>
+    </bean>
 </beans>
