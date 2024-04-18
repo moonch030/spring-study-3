@@ -1,6 +1,7 @@
 package ch05_pjt_01.contact.service;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import ch05_pjt_01.contact.ContactSet;
 import ch05_pjt_01.contact.dao.ContactDao;
@@ -8,12 +9,13 @@ import ch05_pjt_01.contact.dao.ContactDao;
 public class ContactSearchService {
 	
 	// 의존 관계 자동 주입을 위한 어노테이션 추가
-//    @Inject
+    @Inject
+    @Named("contactDao3")
     private ContactDao contactDao;
 
-//    public ContactSearchService() {
-//        System.out.println("ContactSearchService 의 default Constructor");    // 기본생성자
-//    }
+    public ContactSearchService() {
+        System.out.println("ContactSearchService 의 default Constructor");    // 기본생성자
+    }
 
 
     public ContactSearchService(ContactDao contactDao) {
@@ -37,7 +39,7 @@ public class ContactSearchService {
         return contactSet != null ? true : false;
     }
 
-    @Inject
+//    @Inject
     public void setContactDao(ContactDao contactDao) {
         System.out.println("ContactSearchService의 setContactDao 메서드 호출됨.");
         this.contactDao = contactDao;
