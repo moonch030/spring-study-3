@@ -1,13 +1,13 @@
 package ch05_pjt_01.contact.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
 
 import ch05_pjt_01.contact.ContactSet;
 import ch05_pjt_01.contact.dao.ContactDao;
 
 public class ContactRegisterService {
 
-	@Autowired
+//	@Resource
 	private ContactDao contactDao=null;
     
     public ContactRegisterService() {
@@ -17,7 +17,7 @@ public class ContactRegisterService {
     }
     
 
-//    @Autowired
+
     public ContactRegisterService(ContactDao contactDao) {
        System.out.println(
     "ContactDao 파라미터 하나 가진 ContactRegisterService 생성자");
@@ -43,7 +43,7 @@ public class ContactRegisterService {
     }
     
 
-//    @Autowired
+    @Resource
     public void setContactDao(ContactDao contactDao) {
        System.out.println(
        "ContactRegisterService의 setContactDao 메서드 호출됨.");
@@ -51,7 +51,7 @@ public class ContactRegisterService {
     }
 
       
-//    @Autowired
+    @Resource
     public void setWordDao(ContactDao contactDao) {
        System.out.println(
     "ContactRegisterService의 setWordDao 메서드 호출됨.");
