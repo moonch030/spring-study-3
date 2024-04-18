@@ -91,11 +91,11 @@
         <constructor-arg ref="studentAllSelectService"/>
     </bean>
     <!-- studentModifyService 빈 생성-->
-    <bean id="studentModifyService" class="ch04_pjt_06.ems.member.service.StudentModifyService">
+    <bean id="studentModifyService" class="ch06_pjt_06.ems.member.service.StudentModifyService">
         <constructor-arg ref="studentDao"/>
     </bean>
     <!-- studentDeleteService 빈 생성-->
-    <bean id="studentDeleteService" class="ch04_pjt_06.ems.member.service.StudentDeleteService">
+    <bean id="studentDeleteService" class="ch06_pjt_06.ems.member.service.StudentDeleteService">
         <constructor-arg ref="studentDao"/>
     </bean>
 </beans>

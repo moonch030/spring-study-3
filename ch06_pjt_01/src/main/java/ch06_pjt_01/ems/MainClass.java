@@ -14,24 +14,24 @@ import ch06_pjt_01.ems.utils.InitSampleData;
 public class MainClass {
     
     public static void main(String[] args) {   
-//        // classpath:applicationContext.xml에서 자바 빈 객체를 가져옴 
-//        GenericXmlApplicationContext ctx =  
-//                 new GenericXmlApplicationContext("classpath:applicationContext.xml");
+        // classpath:applicationContext.xml에서 자바 빈 객체를 가져옴 
+        GenericXmlApplicationContext ctx =  
+                 new GenericXmlApplicationContext("classpath:applicationContext.xml");
     	
-        
-		/*
-		 * GenericXmlApplicationContext ctx = new GenericXmlApplicationContext(
-		 * "classpath:appCtx1.xml", "classpath:appCtx2.xml", "classpath:appCtx3.xml");
-		 */
-        
-        String appCtxs[] = {
-        	 "classpath:appCtx1.xml", 
-       		 "classpath:appCtx2.xml", 
-       		 "classpath:appCtx3.xml"};
-        
-      // classpath:applicationContext.xml에서 자바 빈 객체를 가져옴 
-      GenericXmlApplicationContext ctx =  
-               new GenericXmlApplicationContext("classpath:appCtxImport.xml");
+//        
+//		/*
+//		 * GenericXmlApplicationContext ctx = new GenericXmlApplicationContext(
+//		 * "classpath:appCtx1.xml", "classpath:appCtx2.xml", "classpath:appCtx3.xml");
+//		 */
+//        
+//        String appCtxs[] = {
+//        	 "classpath:appCtx1.xml", 
+//       		 "classpath:appCtx2.xml", 
+//       		 "classpath:appCtx3.xml"};
+//        
+//      // classpath:applicationContext.xml에서 자바 빈 객체를 가져옴 
+//      GenericXmlApplicationContext ctx =  
+//               new GenericXmlApplicationContext("classpath:appCtxImport.xml");
   	
         
 //        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext(appCtxs);
