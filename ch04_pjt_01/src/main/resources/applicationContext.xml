@@ -75,7 +75,7 @@
 	</bean>
 
 	<!-- StudentDao Bean 객체 생성 -->
-	<bean  id = "studentDao" 
+	<bean id = "studentDao" 
 		class= "ch04_pjt_01.ems.member.dao.StudentDao" >
 	</bean>
 	

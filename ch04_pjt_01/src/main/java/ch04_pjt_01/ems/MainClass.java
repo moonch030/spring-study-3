@@ -24,10 +24,10 @@ public class MainClass {
 		 * "classpath:appCtx1.xml", "classpath:appCtx2.xml", "classpath:appCtx3.xml");
 		 */
         
-        String appCtxs[] = {
-        	 "classpath:appCtx1.xml", 
-       		 "classpath:appCtx2.xml", 
-       		 "classpath:appCtx3.xml"};
+//        String appCtxs[] = {
+//        	 "classpath:appCtx1.xml", 
+//       		 "classpath:appCtx2.xml", 
+//       		 "classpath:appCtx3.xml"};
         
       // classpath:applicationContext.xml에서 자바 빈 객체를 가져옴 
       GenericXmlApplicationContext ctx =  
@@ -104,7 +104,7 @@ public class MainClass {
         psi.printStudentInfo(); //학생 리스트를 전부 출력
         
         //EMS 시스템 정보 출력
-        EMSInformationService obems =ctx.getBean("eMSInformationService",EMSInformationService.class);
+        EMSInformationService obems = ctx.getBean("eMSInformationService",EMSInformationService.class);
         obems.printEMSInformation();
                 
         // 'sId'로 검색할 학생 ID 설정

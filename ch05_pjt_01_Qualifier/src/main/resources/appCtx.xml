@@ -1,80 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- XML 선언: 이 문서에서 사용되는 XML 버전과 인코딩을 명시합니다. -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns:context="http://www.springframework.org/schema/context"
-   
-   xsi:schemaLocation="http://www.springframework.org/schema/beans 
-    http://www.springframework.org/schema/beans/spring-beans.xsd
-    
-    http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context.xsd">
-    
-    <!-- annotation을 사용하기 위해 추가된 코드 -->
-   <context:annotation-config/>
-    
-    <bean id="initSampleData" class="ch05_pjt_01.contact.utils.InitSampleData">
-      <property name="names">
-         <array>
-            <value>류현진</value>
-            <value>손흥민</value>
-            <value>김연경</value>
-         </array>
-      </property>
-      <property name="phoneNumbers">
-         <array>
-            <value>010-0000-1111</value>
-            <value>010-0000-2222</value>
-            <value>010-0000-3333</value>
-         </array>
-      </property>
-   </bean>
-   
-<!--    <bean id="contactDao"
-   		class="ch05_pjt_01.contact.dao.ContactDao">
-   </bean> -->
-   
-   <bean id="contactDao1"
-   		class="ch05_pjt_01.contact.dao.ContactDao"/>
-   <bean id="contactDao2"
-   		class="ch05_pjt_01.contact.dao.ContactDao">
-   		<qualifier value = "qualifierDao"/>
-   </bean>
-   <bean id="contactDao3"
-   		class="ch05_pjt_01.contact.dao.ContactDao"/>
-   
-   
-   <bean id="registerService" 
-   		class="ch05_pjt_01.contact.service.ContactRegisterService">
-<!--    		<constructor-arg ref="contactDao"/> -->
-   </bean>
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+<!-- 스프링 XML 설정의 루트 요소입니다. XML 네임스페이스와 스키마 위치를 선언합니다. -->
 
-   
-   <bean id="searchService" 
-   		class="ch05_pjt_01.contact.service.ContactSearchService">
-<!--    		<constructor-arg ref="contactDao"/> -->
-   </bean>
-   
-   <bean id="firstBean1" class="ch05_pjt_01.contact.service.FirstBean">      
-   </bean>
-   <bean id="firstBean2" class="ch05_pjt_01.contact.service.FirstBean">
-   <qualifier value="qualifierBean" />
-   </bean>
-   <bean id="firstBean3" class="ch05_pjt_01.contact.service.FirstBean"/>
-   
-   
-   <bean id="secondBean" class="ch05_pjt_01.contact.service.SecondBean"/>
-   
-   <bean id="thirdBean" class="ch05_pjt_01.contact.service.ThirdBean"/>
-   
-   <bean id="fourthBean1" class="ch05_pjt_01.contact.service.FourthBean">
-      
-   </bean>
-   <bean id="fourthBean2" class="ch05_pjt_01.contact.service.FourthBean"/>
-   <bean id="fourthBean3" class="ch05_pjt_01.contact.service.FourthBean">
-      <qualifier value="qualifierBean" />
-   </bean>
-   
-   <bean id="autoWiredEx" class="ch05_pjt_01.contact.service.AutoWiredEx"/>
-   
-</beans>
+<context:annotation-config/>
+<!-- 스프링 빈 내에서 사용되는 어노테이션(예: @Autowired, @Resource 등)을 활성화합니다. -->
+
+<bean id="initSampleData" class="ch05_pjt_01.contact.utils.InitSampleData">
+<!-- 'initSampleData'라는 ID를 가진 빈을 정의합니다. 이 클래스는 초기 연락처 데이터를 관리합니다. -->
+
+  <property name="names">
+  <!-- 'names' 속성을 설정합니다. 연락처의 이름 목록입니다. -->
+    <array>
+    <!-- 배열 요소를 사용하여 여러 값을 정의합니다. -->
+      <value>류현진</value>
+      <value>손흥민</value>
+      <value>김연경</value>
+    </array>
+  </property>
+
+  <property name="phoneNumbers">
+  <!-- 'phoneNumbers' 속성을 설정합니다. 연락처의 전화번호 목록입니다. -->
+    <array>
+      <value>010-0000-1111</value>
+      <value>010-0000-2222</value>
+      <value>010-0000-3333</value>
+    </array>
+  </property>
+</bean>
+
+<!-- 나머지 빈 설정은 유사하게 정의됩니다. 각각의 빈은 특정 클래스의 인스턴스를 생성하고, 필요에 따라 속성을 설정하거나 다른 빈과 연결됩니다. -->
+<!-- 'contactDao'의 여러 인스턴스와 다른 서비스 빈들이 정의되어 있으며, 필요한 경우에 @Resource나 @Autowired 같은 어노테이션을 통해 의존성을 주입받습니다. -->

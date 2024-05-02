@@ -30,9 +30,11 @@
       </property>
    </bean>
    
-   <bean id="contactDao"
-   		class="ch05_pjt_01.contact.dao.ContactDao">
+   <bean id="contactDao1" class="ch05_pjt_01.contact.dao.ContactDao">
+   		<qualifier value="contactDao"></qualifier>
    </bean>
+   <bean id="contactDao2" class="ch05_pjt_01.contact.dao.ContactDao"></bean>
+   <bean id="contactDao3" class="ch05_pjt_01.contact.dao.ContactDao"></bean>
    
    <bean id="registerService" 
    		class="ch05_pjt_01.contact.service.ContactRegisterService">
