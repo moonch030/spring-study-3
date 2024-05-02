@@ -11,7 +11,7 @@
 
 <!-- InitSampleData 빈 -->
 	<bean id="initSampleData"
-		class="ch04_pjt_01.ems.utils.InitSampleData">
+		class="ch06_pjt_01.ems.utils.InitSampleData">
 		
 		<property name="sNums">
 			<array>
@@ -80,45 +80,49 @@
 
 	<!-- StudentDao Bean 객체 생성 -->
 	<bean  id = "studentDao" 
-		class= "ch04_pjt_01.ems.member.dao.StudentDao" >
+		class= "ch06_pjt_01.ems.member.dao.StudentDao" >
 	</bean>
 	
 	<!-- StudentRegisterService 빈 생성 -->
 	<bean id="studentRegisterService"
-		class="ch04_pjt_01.ems.member.service.StudentRegisterService">
+		class="ch06_pjt_01.ems.member.service.StudentRegisterService">
 		<constructor-arg ref="studentDao" />
 	</bean>
 	
 	<!-- StudentModifyService 빈 생성 -->
 	<bean id="studentModifyService"
-		class="ch04_pjt_01.ems.member.service.StudentModifyService">
+		class="ch06_pjt_01.ems.member.service.StudentModifyService">
 		<constructor-arg ref="studentDao" />
 	</bean>
 	
 	<!-- StudentDeleteService 빈 생성 -->
 	<bean id="studentDeleteService"
-		class="ch04_pjt_01.ems.member.service.StudentDeleteService">
+		class="ch06_pjt_01.ems.member.service.StudentDeleteService">
 		<constructor-arg ref="studentDao" />
 	</bean>
 	
 	<!-- StudentAllSelectService 빈 생성 -->
 	<bean id="studentAllSelectService"
-		class="ch04_pjt_01.ems.member.service.StudentAllSelectService">
+		class="ch06_pjt_01.ems.member.service.StudentAllSelectService">
 		<constructor-arg ref="studentDao" />
 	</bean>
 	
 	<!-- StudentSelectService 빈 생성 -->
 	<bean id="studentSelectService"
-		class="ch04_pjt_01.ems.member.service.StudentSelectService">
+		class="ch06_pjt_01.ems.member.service.StudentSelectService">
 		<constructor-arg ref="studentDao" />
 	</bean>
 	
 	<!-- PrintStudentInformationService 빈 생성 -->
 	<bean id="printStudentInformationService"
-		class="ch04_pjt_01.ems.member.service.PrintStudentInformationService">
+		class="ch06_pjt_01.ems.member.service.PrintStudentInformationService">
 		<constructor-arg ref="studentAllSelectService" />
 	</bean>	
 	
+<!-- 	<bean id="eMSInformationService"
+		class="ch06_pjt_01.ems.member.service.EMSInformationService">
+		<constructor-arg ref="eMSInformationService" />
+	</bean>	 -->
 </beans>
 
 

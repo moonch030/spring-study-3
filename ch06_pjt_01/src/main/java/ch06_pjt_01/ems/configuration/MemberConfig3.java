@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,8 +22,12 @@ import ch06_pjt_01.ems.utils.InitSampleData;
 
 // applicationContext.xml 설정파일 처럼 스프링 빈 설정 파일을 만들 때 붙히는 어노테이션
 @Configuration
-public class MemberConfig {
-
+public class MemberConfig3 {
+	
+	@Autowired
+	DBConnectionInfo dev_DBConnectionInfoDev;
+	@Autowired
+	DBConnectionInfo real_DBConnectionInfo;
     /**
      * StudentDao 빈 등록
      * @return StudentDao
@@ -158,8 +163,8 @@ public class MemberConfig {
         emsInformationService.setAdministrators(administrators);
 
         Map<String, DBConnectionInfo> dbInfos = new HashMap<>();
-        dbInfos.put("dev", dev_DBConnectionInfoDev());
-        dbInfos.put("real", real_DBConnectionInfo());
+        dbInfos.put("dev", dev_DBConnectionInfoDev);
+        dbInfos.put("real", real_DBConnectionInfo);
         emsInformationService.setDbInfos(dbInfos);
 
         return emsInformationService;

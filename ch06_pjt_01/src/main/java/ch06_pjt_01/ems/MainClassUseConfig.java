@@ -1,7 +1,8 @@
 package ch06_pjt_01.ems;
 
-import org.springframework.context.support.GenericXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import ch06_pjt_01.ems.configuration.MemberConfig;
 import ch06_pjt_01.ems.member.Student;
 import ch06_pjt_01.ems.member.service.EMSInformationService;
 import ch06_pjt_01.ems.member.service.PrintStudentInformationService;
@@ -12,12 +13,9 @@ import ch06_pjt_01.ems.member.service.StudentSelectService;
 import ch06_pjt_01.ems.utils.InitSampleData;
 
 
-public class MainClass {
+public class MainClassUseConfig {
     public static void main(String[] args) {
-//        GenericXmlApplicationContext ac = new GenericXmlApplicationContext("classpath:applicationContext.xml"); // 빈 객체가 정의되어있는 xml 파일 연결
-//        String[] acs = {"classpath:appCtx1.xml", "classpath:appCtx2.xml", "classpath:appCtx3.xml"};
-        GenericXmlApplicationContext ac = new GenericXmlApplicationContext("classpath:appCtxImport.xml"); // appCtx1, 2, 3을 한곳으로 합쳐둔 xml 파일 연결
-//        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MemberConfig.class);
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MemberConfig.class);
         InitSampleData initSampleData = ac.getBean("initSampleData", InitSampleData.class); // 빈에 등록된 initSampleData 객체를 가져옴
 
         String[] sNums = initSampleData.getsNums();
@@ -56,7 +54,7 @@ public class MainClass {
         System.out.println("END ----------------------------");
 
         // 학생 아이디로 검색하기
-        Student findStudent = studentSelectService.selectBySId("lion"); // rabbit 이라는 아이디를 가진 학생 조회하기
+        Student findStudent = studentSelectService.select("lion"); // rabbit 이라는 아이디를 가진 학생 조회하기
         System.out.println("SELECT BY STUDENT_ID ------------------");
         System.out.print("sNum:" + findStudent.getsNum() + "\t");
         System.out.print("|sId:" + findStudent.getsId() + "\t");
